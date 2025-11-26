@@ -5,7 +5,7 @@ export default function Page() {
     <View style={styles.container}>
       <View style={styles.main}>
         <Text style={styles.title}>Olá, Estudante</Text>
-        <Text style={styles.subtitle}>Bem vindo ao seu app!</Text>
+        <Text style={styles.subtitle}>Bem vindo ao meu app!</Text>
       </View>
     </View>
   );
