@@ -30,6 +30,7 @@ export default function InfoTipo() {
   const router = useRouter();
 
   const tipoRaw = params?.tipo || "";
+  console.log(params)
   const tipoKey = String(tipoRaw).toLowerCase();
 
   const data = {
@@ -87,6 +88,13 @@ export default function InfoTipo() {
           <View style={styles.card}>
             {info ? (
               <>
+                <TouchableOpacity
+                  style={styles.voltarBtn}
+                  onPress={() => router.replace(`/escolhaTipo?tipo=${encodeURIComponent(tipoRaw)}`)}
+                >
+                  <Text style={styles.voltarText}>← Voltar</Text>
+                </TouchableOpacity>
+
                 <Image source={info.image} style={styles.image} resizeMode="cover" />
                 <Text style={styles.title}>{info.title}</Text>
 
@@ -135,12 +143,30 @@ const styles = StyleSheet.create({
     paddingHorizontal: Platform.OS === "web" ? 40 : 16,
     paddingVertical: 18,
   },
+voltarBtn: {
+    alignSelf: "flex-start",
+    backgroundColor: "rgba(220,234,255,0.04)",
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "rgba(220,234,255,0.12)",
+    marginBottom: 18,
+  },
+  voltarText: { color: THEME.accent, fontWeight: "700" },
+  title: {
+    color: "#FFFFFF",
+    fontSize: Platform.OS === "web" ? 34 : 26,
+    fontWeight: "800",
+    marginBottom: 18,
+    textAlign: "center",
+  },
   card: {
     width: "100%",
     maxWidth: 880,
     backgroundColor: THEME.card,
     borderRadius: 16,
-    padding: Platform.OS === "web" ? 90 : 30,
+    padding: Platform.OS === "web" ? 70 : 30,
     borderWidth: 1,
     borderColor: "rgba(220,234,255,0.06)",
     alignItems: "center",
@@ -149,7 +175,7 @@ const styles = StyleSheet.create({
     shadowRadius: 12,
     shadowOffset: { width: 0, height: 8 },
     elevation: 4,
-    marginTop: Platform.OS === "web" ? 90 : 0,
+    marginTop: Platform.OS === "web" ? 50 : 0,
   },
   image: {
     width: Platform.OS === "web" ? 250 : 140,
@@ -182,7 +208,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 1,
     borderColor: "rgba(220,234,255,0.12)",
-    
+
   },
   primaryButtonText: {
     color: "#FFFFFF",

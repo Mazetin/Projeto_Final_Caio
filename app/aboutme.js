@@ -1,5 +1,5 @@
 import { StatusBar } from "react-native-web";
-import {Image, StyleSheet, Text, View, Platform, ImageBackground,} from "react-native";
+import { Image, StyleSheet, Text, View, Platform, ImageBackground, } from "react-native";
 import foto from "../assets/img.jpg";
 import { SafeAreaView } from "react-native-safe-area-context";
 import background from "../assets/painel.jpg";
@@ -7,7 +7,7 @@ import background from "../assets/painel.jpg";
 export default function Page() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ImageBackground source={background}style={styles.background}resizeMode="cover">
+      <ImageBackground source={background} style={styles.background} resizeMode="cover">
         <View style={styles.container}>
           <Text style={styles.title}>Sobre mim</Text>
           <View style={styles.main}>
@@ -50,7 +50,6 @@ export default function Page() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //backgroundColor: "gray",
     alignItems: "center",
     padding: 24,
   },

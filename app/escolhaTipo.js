@@ -1,4 +1,3 @@
-// /escolhaTipo.js
 import React from "react";
 import {
   View,
@@ -11,7 +10,6 @@ import {
   Platform,
 } from "react-native";
 import { useRouter } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
 
 const THEME = {
   bg: "#0F2A4A",
@@ -27,13 +25,13 @@ export default function EscolhaTipo() {
     <SafeAreaView style={[styles.container, { backgroundColor: THEME.bg }]}>
       <ScrollView contentContainerStyle={styles.scroll}>
         <TouchableOpacity
-          style={styles.backButton}
+          style={styles.voltarBtn}
           onPress={() => router.back()}
-          accessibilityLabel="Voltar"
         >
-          <Ionicons name="arrow-back" size={20} color={THEME.accent} />
-          <Text style={styles.backText}>Voltar</Text>
+          <Text style={styles.voltarText}>← Voltar</Text>
         </TouchableOpacity>
+
+
 
         <View style={styles.wrapper}>
           <Image
@@ -70,21 +68,23 @@ const styles = StyleSheet.create({
     padding: Platform.OS === "web" ? 40 : 20,
     alignItems: "center",
   },
-  backButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    padding: 10,
+  voltarBtn: {
+    alignSelf: "flex-start",
+    backgroundColor: "rgba(220,234,255,0.04)",
+    paddingVertical: 10,
+    paddingHorizontal: 16,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: "rgba(220,234,255,0.18)",
-    backgroundColor: "rgba(220,234,255,0.04)",
-    alignSelf: "flex-start",
-    marginBottom: 12,
+    borderColor: "rgba(220,234,255,0.12)",
+    marginBottom: 18,
   },
-  backText: {
-    color: THEME.accent,
-    marginLeft: 8,
-    fontWeight: "600",
+  voltarText: { color: THEME.accent, fontWeight: "700" },
+  title: {
+    color: "#FFFFFF",
+    fontSize: Platform.OS === "web" ? 34 : 26,
+    fontWeight: "800",
+    marginBottom: 18,
+    textAlign: "center",
   },
   wrapper: {
     width: "100%",

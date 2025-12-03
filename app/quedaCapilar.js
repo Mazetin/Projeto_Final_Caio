@@ -1,6 +1,6 @@
-// /quedaCapilar.js
 import React from "react";
-import { View, Text, StyleSheet, ScrollView, SafeAreaView, Platform } from "react-native";
+import { View, Text, StyleSheet, ScrollView, SafeAreaView, Platform, TouchableOpacity } from "react-native";
+import { useRouter } from "expo-router";
 
 const THEME = {
   bg: "#0F2A4A",
@@ -8,9 +8,16 @@ const THEME = {
 };
 
 export default function QuedaCapilar() {
+   const router = useRouter();
   return (
     <SafeAreaView style={[styles.safe, { backgroundColor: THEME.bg }]}>
       <ScrollView contentContainerStyle={styles.scroll}>
+        <TouchableOpacity
+          style={styles.voltarBtn}
+          onPress={() => router.back()}
+        >
+          <Text style={styles.voltarText}>← Voltar para o início</Text>
+        </TouchableOpacity>
         <Text style={styles.title}>Queda Capilar</Text>
 
         <Text style={styles.lead}>
@@ -94,6 +101,17 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 8,
   },
+  voltarBtn: {
+    alignSelf: "flex-start",
+    backgroundColor: "rgba(220,234,255,0.04)",
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "rgba(220,234,255,0.12)",
+    marginBottom: 18,
+  },
+  voltarText: { color: THEME.accent, fontWeight: "700" },
   lead: {
     color: "rgba(220,234,255,0.9)",
     fontSize: 16,

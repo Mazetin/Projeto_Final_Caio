@@ -1,4 +1,3 @@
-// /cuidadosTipo.js
 import React from "react";
 import {
   View,
@@ -58,6 +57,8 @@ export default function CuidadosTipo() {
 
   const lista = cuidados[tipo] || ["Tipo desconhecido. Volte e selecione novamente."];
 
+  console.log(tipo)
+
   return (
     <SafeAreaView style={[styles.safe, { backgroundColor: THEME.bg }]}>
       <ScrollView
@@ -66,7 +67,7 @@ export default function CuidadosTipo() {
           alignItems: "center",
         }}
       >
-        <TouchableOpacity style={styles.voltarBtn} onPress={() => router.back()}>
+        <TouchableOpacity style={styles.voltarBtn} onPress={() => router.replace('/infoTipo?tipo=' + encodeURIComponent(tipo))}>
           <Text style={styles.voltarText}>← Voltar</Text>
         </TouchableOpacity>
 
